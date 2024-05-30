@@ -12,7 +12,7 @@ function App() {
         options={{
           headerShown: false
         }} />
-      <Stack.Screen name="despesa" component={CadDespesa}
+      <Stack.Screen name="despesas" component={CadDespesa}
         options={{
           title: "Despesa",
           headerTitleAlign: "center",

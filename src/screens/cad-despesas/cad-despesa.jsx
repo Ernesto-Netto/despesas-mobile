@@ -20,7 +20,7 @@ const CadDespesa = (props) => {
         //Salvar a despesa na API
         try {
             if (props.route.params.id > 0) {
-                await api.put("/despesa/" + props.route.params.id, {
+                await api.put("/despesas/" + props.route.params.id, {
                     descricao: descricao,
                     categoria: categoria,
                     valor: valor,
@@ -62,6 +62,9 @@ const CadDespesa = (props) => {
             const response = await api.get("/despesas/" + id);
             setDescricao(response.data.descricao);
             setCategoria(response.data.categoria);
+            setForma(response.data.forma);
+            setMes(response.data.mes);
+            setAno(response.data.ano);
             setValor(response.data.valor);
 
         } catch (error) {
@@ -78,7 +81,7 @@ const CadDespesa = (props) => {
 
         //Buscar os dados da despesa na API...
         if (props.route.params.id > 0) {
-            DadosDespesa(props.route.id);
+            DadosDespesa(props.route.params.id);
         }
     }, []);
 
@@ -87,7 +90,7 @@ const CadDespesa = (props) => {
         <View style={styles.containerField}>
             <Text style={styles.inputLabel}>Valor</Text>
             <TextInput placeholder="0,00" style={styles.inputValor}
-                defaultValue={valor}
+                defaultValue={valor.toString()}
                 keyboardType="decimal-pad"
                 onChangeText={(texto) => setValor(texto)} />
         </View>
@@ -116,9 +119,6 @@ const CadDespesa = (props) => {
                 </Picker>
             </View>
         </View>
-
-
-
 
         <View style={styles.containerField}>
             <Text style={styles.inputLabel}>Forma de Pagmento</Text>
@@ -153,7 +153,7 @@ const CadDespesa = (props) => {
         <View style={styles.containerField}>
             <Text style={styles.inputLabel}>Ano</Text>
             <View style={styles.inputPiker}>
-                <Picker selectedValue={ano}
+                <Picker selectedValue={ano.toString()}
                     onValueChange={(itemValue, itemIndex) => {
                         setAno(itemValue);
                     }}>
@@ -163,9 +163,6 @@ const CadDespesa = (props) => {
                 </Picker>
             </View>
         </View>
-
-
-
 
 
         <View style={styles.containerBtn}>

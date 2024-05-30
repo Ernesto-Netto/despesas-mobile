@@ -12,7 +12,7 @@ const Home = (props) => {
     const [despesas, setDespesas] = useState([]);
 
     const OpenDespesa = (id) => {
-        props.navigation.navigate("despesa", {
+        props.navigation.navigate("despesas", {
             id: id
         });
     }
@@ -70,9 +70,7 @@ const Home = (props) => {
                 }
 
             </View>
-
         </ScrollView>
-
         <TouchableOpacity style={styles.btnAdd} onPress={() => OpenDespesa(0)}>
             <Image source={icons.add} style={styles.btnAddImage} />
         </TouchableOpacity>

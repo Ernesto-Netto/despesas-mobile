@@ -55,16 +55,14 @@ export const styles = {
         fontWeight: "bold"
     },
 
-    btnAddImage: {
-        width: 50,
-        height: 50
-    },
-
     btnAdd: {
         position: "absolute",
         bottom: 12
+    },
+
+    btnAddImage: {
+        width: 50,
+        height: 50
     }
-
-
 
 }
